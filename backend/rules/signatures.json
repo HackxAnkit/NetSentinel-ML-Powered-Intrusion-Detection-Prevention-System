@@ -1,0 +1,42 @@
+[
+    {
+        "id": "SIG-001",
+        "name": "SQL Injection (Generic 1=1)",
+        "protocol": "TCP",
+        "pattern": "(?i)(?:'|%27)\\s*(?:OR|AND)\\s*(?:'|%27)?1(?:'|%27)?\\s*=\\s*(?:'|%27)?1",
+        "severity": "HIGH",
+        "description": "Basic SQL injection attempting to bypass authentication."
+    },
+    {
+        "id": "SIG-002",
+        "name": "SQL Injection (UNION SELECT)",
+        "protocol": "TCP",
+        "pattern": "(?i)UNION\\s+(?:ALL\\s+)?SELECT",
+        "severity": "HIGH",
+        "description": "SQL injection attempting to extract data."
+    },
+    {
+        "id": "SIG-003",
+        "name": "Cross-Site Scripting (XSS)",
+        "protocol": "TCP",
+        "pattern": "(?i)<script(?:[^>]+)?>.*?</script>",
+        "severity": "MEDIUM",
+        "description": "Basic script injection payload."
+    },
+    {
+        "id": "SIG-004",
+        "name": "Directory Traversal",
+        "protocol": "TCP",
+        "pattern": "(?:\\.\\./|\\.\\.\\\\){2,}",
+        "severity": "MEDIUM",
+        "description": "Attempted path traversal to access hidden files."
+    },
+    {
+        "id": "SIG-005",
+        "name": "Nmap User-Agent",
+        "protocol": "TCP",
+        "pattern": "(?i)User-Agent:\\s*Nmap\\s+Scripting\\s+Engine",
+        "severity": "LOW",
+        "description": "Nmap automated scan detected."
+    }
+]
